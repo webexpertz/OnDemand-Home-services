@@ -1,0 +1,30 @@
+<ion-content>
+	<div class="backtologin">
+	<ion-icon *ngIf="findios=='isios'" name="ios-arrow-back" class="back-arrow" (click)="loginpage()"> <span>Back</span></ion-icon> 
+	<ion-icon *ngIf="findios=='notios'" name="arrow-round-back" (click)="loginpage()"></ion-icon>
+	</div> 
+	<div class="brand-logo"><img src="assets/imgs/logo1.png"></div> 
+<div padding class="loginpage">
+	<form [formGroup]="formgroup" >
+		<ion-row>
+			<ion-col>
+				<ion-list inset class="no-border">
+						<div class="inputvalidation">
+						  <ion-icon name="ios-mail-outline"></ion-icon>
+							<ion-item>  
+							<ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+							</ion-item>
+							<p *ngIf="email.hasError('required') && email.touched">Please enter your email address</p>
+							<p *ngIf="email.hasError('pattern') && email.touched">Please enter a valid email address</p>
+						</div>
+				</ion-list>
+			</ion-col> 
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<button class="login-button btn" (click)="forget(formgroup.value)" type="submit" [disabled]="!formgroup.valid">Forgot Password</button>
+			</ion-col>
+		</ion-row>
+	</form>
+</div>
+</ion-content>

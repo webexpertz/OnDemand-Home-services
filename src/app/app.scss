@@ -1,0 +1,253 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+// Global style
+
+img {
+    height: auto;
+    vertical-align: middle; 
+}
+
+// header style with menu 
+.header-md::after, .header::after{
+    background-image: none !important;
+}
+.header .toolbar .back-button {
+    color: #fff;
+}
+ .header .bar-button .icon[ng-reflect-name="menu"] {
+    background-image: url("../assets/icon/i6_humberger_menu.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 23px auto;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+
+    &::before{
+        content: "";
+    }
+}
+.toolbar-background {
+    background-color: #ff8e2e;
+    background-image: url("../assets/imgs/toolbar_bg.jpg");
+    background-size: cover;
+    border: medium none !important;  
+    box-shadow: none;
+}
+.toolbar-title {
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+/*
+.title-ios {
+    padding-right: 0 !important;
+    .toolbar-title-ios {
+        text-align: left;
+    }
+}
+*/
+// side menu style
+.show-menu
+.menu-inner{
+    //== header img 
+    .header {
+       background-image:url("../assets/imgs/side_bar.png");
+       background-size: cover;
+       padding-top: 56.25%;
+   }
+   .header > img {
+       display: none;
+   }
+   .content{
+       .fixed-content {
+           margin-top: 56.25% !important;
+       }
+       .scroll-content {
+           margin-top: 56.25% !important;
+       }
+   }
+}
+.menu-inner{
+        .content {
+            background-color: #ed6d00;
+        button {
+            background-color: #ed6d00 !important;
+            border-bottom: 1px solid #fff !important;
+            padding: 10px 0 10px 15px;
+            .icon {
+                background-position: left center;
+                background-repeat: no-repeat;
+                background-size: 26px auto;
+                color: #fff;
+                float: left;
+                margin-right: 0;
+                width: 38px;
+                &::before{
+                    content: "";
+                }
+                //custom icon img
+                &[ng-reflect-name="person"] {
+                    background-image: url("../assets/icon/i1_my_acc.png");
+                }
+                &[ng-reflect-name="lock"] {
+                    background-image: url("../assets/icon/i2_change-pass.png");
+                }
+                &[ng-reflect-name="information-circle"] {
+                    background-image: url("../assets/icon/i3_about.png");
+                }
+                &[ng-reflect-name="notifications"] {
+                    background-image: url("../assets/icon/i4_noti.png");
+                }
+                &[ng-reflect-name="power"] {
+                    background-image: url("../assets/icon/i5_logout.png"); 
+                }
+                &[ng-reflect-name="home"] {
+                    background-image: url("../assets/icon/i7_my_home.png"); 
+                    background-size: 22px auto;
+                }
+                &[ng-reflect-name="card"] {
+                    background-image: url("../assets/icon/credit-card-01.png"); 
+                    background-size: 22px auto;
+                }
+            }
+            .item-inner {
+                border: medium none !important;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+    }
+    // globle validation css
+    .inputvalidation {
+        margin-bottom: 15px;
+        padding:0;
+        position: relative;
+            .icon {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                z-index: 9;
+            }
+          .item-block { 
+            border: medium none !important;
+            border-radius: 3px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            min-height: 40px;
+            padding-left: 30px !important;
+            .item-inner {
+                border: medium none;
+            }
+            & + p {
+                background-color: #ed6e00;
+                border-radius: 3px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+                color:#fff;
+                margin: 0;
+                padding: 2px 5px; 
+                position: absolute;
+                top: 100%;
+                z-index: 9; 
+                animation-name:zoomIn; 
+                animation-duration:250ms; 
+                &:after{
+                    border-color: transparent transparent #ed6e00;
+                    border-style: solid;
+                    border-width: 0 5px 8px;
+                    content: "";
+                    left: 10px;
+                    position: absolute;
+                    top: -8px;
+                }
+            }  
+        } 
+    }
+}
+
+  // BUTTON DDEFAULT
+  button[color="primary"], .button-md-primary{
+    background-color: #ef7e1e;
+    font-size: 1.4rem;
+    font-weight: 600;
+    height: 2.5em;
+    letter-spacing: 0.5px;
+    line-height: 2.5em; 
+    text-transform: uppercase;
+}  
+
+// BOTTOM TABS 
+.tabs-md, .tabs-ios {
+ .tab-button[aria-selected=true] {
+    color: #ed6d00 ;
+     .tab-button-icon {
+        color: #ed6d00 ;
+     }
+  }
+}
+
+// ion-modal.my-custom-modal-CSS{
+//     // padding-left: 25px;
+//     // padding-right: 25px;
+//     // padding-top:100px;
+//     // padding-bottom:100px
+// }
+span {
+    // background: #fff;
+    // border-radius: 30px;
+    // min-width: 20px;
+    // height: 20px;
+    // display: inline-block;
+    // text-align: center;
+    // font-size: 13px;
+    // padding: 1px 4px;
+
+}
+.counter {
+    position: absolute;
+    font-size: 10px;
+    right: 50px;
+    top: 25px;
+    color: #ed6d00;
+    bottom: 0;
+    margin: auto;
+    font-weight: bold;
+        background: #fff; 
+     border-radius: 30px; 
+     min-width: 20px; 
+     height: 20px; 
+    display: inline-block; 
+     text-align: center; 
+    font-size: 13px; 
+     padding: 1px 4px; 
+
+}
+
+
+span.counter {
+    position: absolute;
+    top: 76%;
+    margin: 0 auto;
+    left: auto;
+    right: 46px;
+    display: inline-block;
+}
+ion-list{
+    position:relative;
+}

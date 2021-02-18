@@ -1,0 +1,86 @@
+page-customer-calender {
+    // header
+    .card-header {
+        background-color: #f6f4f5;
+        text-align: center;
+        .icon {
+            background-color: #fd9615;
+            border-radius: 50%;
+            color: #fff;
+            height: 28px;
+            margin: 0 10px;
+            padding: 4px 0 0;
+            position: relative;
+            width: 28px;
+        }
+    }
+     // calender
+     .calender-card {
+        background-color: #f6f4f5;
+        border-radius: 4px;
+        margin: 5px auto 15px;
+        max-width: 300px;
+        padding: 10px;
+        width: 100%;
+    }
+    .swiper-slide{
+        font-size: 15px;
+        table{
+            border: none!important;
+        }
+        td, th {
+            border: medium none !important;
+            border-radius: 50%;
+            height: 38px;
+            padding:8px 0 !important;
+            text-transform: uppercase;
+            width: 38px;
+        }
+        // is selected
+        .monthview-selected[_ngcontent-c1] {
+            background-color: #2a272e; 
+        }
+    }
+    // list
+    .list{
+        margin: 0 -10px 20px;
+        .item {
+            border: medium none !important;
+            margin: 0;
+            padding: 0;
+            .item-inner{
+                padding:0;
+                border-bottom: none !important;
+                .label {
+                    margin: 0;
+                    .card {
+                        background-color: #f6f5f5;
+                        margin: 10px;
+                        width: calc(100% - 20px);
+                    }
+                }
+            }
+       }
+    }   
+
+    // calender notification
+    .monthview-primary-with-event[_ngcontent-c1] {
+        background-color: transparent;
+        color: #000;
+        position: relative;
+        &.monthview-primary-with-event[_ngcontent-c1]:after {
+            height: 4px;
+            width: 4px;
+            content: "";
+            position: absolute;
+            margin-left: -2px;
+            background-color: #ed6d00;
+            bottom: 6px;
+            border-radius: 50%;
+            left: 50%;
+        }
+        &.monthview-selected[_ngcontent-c1]{
+            color:#fff;
+        }
+    } 
+}

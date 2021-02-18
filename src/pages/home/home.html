@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+    <ion-content>
+		<div class="parallax-header">
+		 <img id="profile-bg"  src="assets/imgs/home-top.jpg">
+		</div>	
+	<ion-card (click)="onMyAccount()"> <ion-icon name="person"></ion-icon><span> My Account</span></ion-card>
+	<ion-card (click)="onNotifiaction()"> <ion-icon name="notifications"></ion-icon> <span> Notifications</span></ion-card>
+	<ion-card (click)="onSchedule()"> <ion-icon name="calendar"></ion-icon><span>  Schedule a Service</span></ion-card>
+	<ion-card (click)="onServiceSchedule()"> <ion-icon name="calendar"></ion-icon><span>  Scheduled Services</span></ion-card>
+	 <ion-list no-lines class="list-schedule">
+		<ion-item no-lines *ngFor="let notify of getNotication">
+			<ion-card>
+				<p>{{notify.service}}</p>
+			<p>{{notify.booking_date}} - {{notify.booking_time}}</p>
+			<p class="highlighted">{{notify.techname}} - {{notify.techcontact}}</p>
+			</ion-card>
+		</ion-item>
+	 </ion-list>
+</ion-content>

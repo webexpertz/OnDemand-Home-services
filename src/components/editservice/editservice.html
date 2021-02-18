@@ -1,0 +1,60 @@
+<!-- Generated template for the EditserviceComponent component -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Edit Service
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()"  >
+   Cancel
+       
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="formgroup">
+
+      <h4>Service name:</h4>
+  <ion-row>
+   
+      <ion-item>
+        <ion-label>{{service}}</ion-label>
+      </ion-item>
+  <!-- <ion-item>
+        <ion-label class="modtitle" position="floating" (click)="show()">Booking Dates</ion-label>
+       <!-- <ion-datetime [(ngModel)]="date" [placeholder]="date"></ion-datetime> 
+      </ion-item> -->
+    </ion-row>
+    <ion-row>
+<ion-item>
+      <ion-label>Booking Date</ion-label>
+ 
+       
+      <ion-datetime [placeholder]="date"  displayFormat="MM/DD/YYYY" [(ngModel)]="selectedddate" formControlName="date_of_delivery" [min]="mindate" (ngModelChange)="dateChanged()" ></ion-datetime>  
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <ion-item>
+      <ion-label>Booking Time</ion-label>
+        
+         
+      <ion-select     (ionChange)="onChange($event)" [(ngModel)]="selectedTime"  formControlName="selectedTime" >
+        <ion-option *ngIf="availableTimes.length == 0" >No time available </ion-option>
+        <div >
+          
+           <ion-option  *ngFor="let data of availableTimes  let idx=index"   >{{data}}</ion-option>
+     </div>
+     </ion-select>
+     
+       
+         </ion-item>
+</ion-row>
+
+</form>
+<button ion-button  type="submit" (click)="onSubmitClick(formgroup.value)">Update</button>
+</ion-grid>
+
+</ion-content>

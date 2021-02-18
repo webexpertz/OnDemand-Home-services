@@ -1,0 +1,339 @@
+<!--
+  Generated template for the EditAccountInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="formgroup">
+    <ion-list no-lines>
+      <ion-item no-lines>
+        <ion-card>
+          <ion-card-header color="primary">
+            <ion-icon name="person"></ion-icon>
+            <b>&nbsp; Personal Information</b>
+          </ion-card-header>
+          <div style="padding:15px">
+            <ion-row item-content>
+              <ion-col>Firstname :</ion-col>
+              <ion-col>
+				 <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="firstname" value="{{userData.firstname}}"></ion-input>
+                </ion-item>
+                <p *ngIf="firstname.hasError('required') && firstname.touched" class="input-error">Please enter your firstname</p>
+				</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Lastname :</ion-col>
+              <ion-col>
+				  <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="lastname" value="{{userData.lastname}}"></ion-input>
+                </ion-item>
+             <p *ngIf="lastname.hasError('required') && lastname.touched" class="input-error">Please enter your lastname</p>
+			</div>
+              </ion-col>
+            </ion-row>
+             <ion-row>
+              <ion-col>Email :</ion-col>
+              <ion-col>
+				  <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="email" formControlName="email" value="{{userData.email}}"></ion-input>
+                </ion-item>
+                <p *ngIf="email.hasError('required') && email.touched" class="input-error">Please enter your email address</p>
+				<p *ngIf="email.hasError('pattern') && email.touched" class="input-error">Please enter your valid email address</p>
+				</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Phone :</ion-col>
+              <ion-col>
+				  <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="phone" formControlName="mobile" value="{{userData.mobile}}"></ion-input>
+                </ion-item>
+                <p *ngIf="mobile.hasError('required') && mobile.touched" class="input-error">Please enter your phone number</p>
+				<p *ngIf="mobile.hasError('pattern') && mobile.touched" class="input-error">Please enter your valid phone number.</p>		
+	     		</div>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>Alternate phone :</ion-col>
+              <ion-col>
+                  <div class="inputvalidation">
+                        <ion-item no-lines>
+                          <ion-input  type="phone" formControlName="altermobile" value="{{userData.alternate_phone}}"></ion-input>
+                        </ion-item>	
+                  </div>
+              </ion-col>
+            </ion-row>
+
+
+          </div>
+        </ion-card>
+      </ion-item>
+
+     
+
+      <ion-item>
+        <ion-card>
+          <ion-card-header color="primary" padding=0px>
+            <ion-icon name="home"></ion-icon>
+            <b>&nbsp; Physical Address</b>
+          </ion-card-header>
+          <div style="padding:15px">
+            <ion-row>
+              <ion-col> Street Address :</ion-col>
+              <ion-col>
+				  <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="address" value="{{userData.address}}"></ion-input>
+                </ion-item>
+                <p *ngIf="address.hasError('required') && address.touched" class="input-error">Please enter your street address.</p>
+				</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Apt/Suit :</ion-col>
+              <ion-col>
+				  <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="apt" value="{{userData.apt}}"></ion-input>
+                </ion-item>
+                <p *ngIf="apt.hasError('required') && apt.touched" class="input-error">Please enter your Apt/suit.</p>
+				</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>City :</ion-col>
+              <ion-col>
+				  <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="city" value="{{userData.city}}"></ion-input>
+                </ion-item>
+                 <p *ngIf="city.hasError('required') && city.touched" class="input-error">Please enter your city.</p>
+				</div>
+              </ion-col>
+            </ion-row>
+             <ion-row>
+              <ion-col>State :</ion-col>
+             <ion-col> 
+				  <div class="inputvalidation">
+					  <ion-item>  <ion-select formControlName="state">
+                  <ion-option value="">Select</ion-option>
+                  <ion-option value="Alabama">Alabama</ion-option>
+                  <ion-option value="Alaska">Alaska</ion-option>
+                  <ion-option value="Arizona">Arizona</ion-option>
+                  <ion-option value="Arkansas">Arkansas</ion-option>
+                  <ion-option value="California">California</ion-option>
+                  <ion-option value="Colorado">Colorado</ion-option>
+                  <ion-option value="Connecticut">Connecticut</ion-option>
+                  <ion-option value="Delaware">Delaware</ion-option>
+                  <ion-option value="District Of Columbia">District Of Columbia</ion-option>
+                  <ion-option value="Florida">Florida</ion-option>
+                  <ion-option value="Georgia">Georgia</ion-option>
+                  <ion-option value="Hawaii">Hawaii</ion-option>
+                  <ion-option value="Idaho">Idaho</ion-option>
+                  <ion-option value="Illinois">Illinois</ion-option>
+                  <ion-option value="Indiana">Indiana</ion-option>
+                  <ion-option value="Iowa">Iowa</ion-option>
+                  <ion-option value="Kansas">Kansas</ion-option>
+                  <ion-option value="Kentucky">Kentucky</ion-option>
+                  <ion-option value="Louisiana">Louisiana</ion-option>
+                  <ion-option value="Maine">Maine</ion-option>
+                  <ion-option value="Maryland">Maryland</ion-option>
+                  <ion-option value="Massachusetts">Massachusetts</ion-option>
+                  <ion-option value="Michigan">Michigan</ion-option>
+                  <ion-option value="Minnesota">Minnesota</ion-option>
+                  <ion-option value="Mississippi">Mississippi</ion-option>
+                  <ion-option value="Missouri">Missouri</ion-option>
+                  <ion-option value="Montana">Montana</ion-option>
+                  <ion-option value="Nebraska">Nebraska</ion-option>
+                  <ion-option value="Nevada">Nevada</ion-option>
+                  <ion-option value="New Hampshire">New Hampshire</ion-option>
+                  <ion-option value="New Jersey">New Jersey</ion-option>
+                  <ion-option value="New Mexico">New Mexico</ion-option>
+                  <ion-option value="New York">New York</ion-option>
+                  <ion-option value="North Carolina">North Carolina</ion-option>
+                  <ion-option value="North Dakota">North Dakota</ion-option>
+                  <ion-option value="Ohio">Ohio</ion-option>
+                  <ion-option value="Oklahoma">Oklahoma</ion-option>
+                  <ion-option value="Oregon">Oregon</ion-option>
+                  <ion-option value="Pennsylvania">Pennsylvania</ion-option>
+                  <ion-option value="Rhode Island">Rhode Island</ion-option>
+                  <ion-option value="South Carolina">South Carolina</ion-option>
+                  <ion-option value="South Dakota">South Dakota</ion-option>
+                  <ion-option value="Tennessee">Tennessee</ion-option>
+                  <ion-option value="Texas">Texas</ion-option>
+                  <ion-option value="Utah">Utah</ion-option>
+                  <ion-option value="Vermont">Vermont</ion-option>
+                  <ion-option value="Virginia">Virginia</ion-option>
+                  <ion-option value="Washington">Washington</ion-option>
+                  <ion-option value="West Virginia">West Virginia</ion-option>
+                  <ion-option value="Wisconsin">Wisconsin</ion-option>
+                  <ion-option value="Wyoming">Wyoming</ion-option>
+                </ion-select>
+            </ion-item>
+             <p *ngIf="state.hasError('required') && state.touched" class="input-error">Please enter your state.</p>
+             </div>
+             </ion-col>
+              </ion-row>
+            <ion-row>
+              <ion-col>Zip :</ion-col>
+              <ion-col>
+				   <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="zip" value="{{userData.zip}}"></ion-input>
+                </ion-item>
+                 <p *ngIf="zip.hasError('required') && zip.touched" class="input-error">Please enter your zip code.</p>
+                 <p *ngIf="zip.hasError('pattern') && zip.touched" class="input-error">Please enter your valid zip code.</p>
+                 </div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </ion-item>
+     
+      
+        <ion-checkbox class="checkbox" [checked]=isChecked (ionChange)="updateAddressCheckBox($event.checked)"></ion-checkbox>
+        <p>Check here if Physical Address is the same as Billing Address</p>
+  
+      <ion-item [hidden]="isAddressSame">
+        <ion-card>
+          <ion-card-header color="primary" padding=0px>
+            <ion-icon name="ios-document"></ion-icon>
+            <b>&nbsp; Billing Information</b>
+          </ion-card-header>
+          <div style="padding:15px">
+            <ion-row>
+              <ion-col> Street Address :</ion-col>
+              <ion-col>
+				   <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="billingaddresss" value="{{userData.billingaddresss}}"></ion-input>
+                </ion-item>
+                 <p *ngIf="billingaddresss.hasError('required') && billingaddresss.touched" class="input-error">Please enter your billing addresss.</p>
+                 </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Apt/Suit :</ion-col>
+              <ion-col>
+				   <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input type="text" formControlName="billingapt" value="{{userData.billingapt}}"></ion-input>
+                </ion-item>
+                 <p *ngIf="billingapt.hasError('required') && billingapt.touched" class="input-error">Please enter your billing apartment.</p>
+                 </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>City :</ion-col>
+              <ion-col>
+				   <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input  type="text" formControlName="billingcity" value="{{userData.billingcity}}"></ion-input>
+                </ion-item>
+                 <p *ngIf="billingcity.hasError('required') && billingcity.touched" class="input-error">Please enter your billing city.</p>
+                 </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>State :</ion-col>
+              <ion-col> 
+				   <div class="inputvalidation">
+			    <ion-item>  <ion-select formControlName="billingstate">
+                <ion-option value="">Select</ion-option>
+                <ion-option value="Alabama">Alabama</ion-option>
+                <ion-option value="Alaska">Alaska</ion-option>
+                <ion-option value="Arizona">Arizona</ion-option>
+                <ion-option value="Arkansas">Arkansas</ion-option>
+                <ion-option value="California">California</ion-option>
+                <ion-option value="Colorado">Colorado</ion-option>
+                <ion-option value="Connecticut">Connecticut</ion-option>
+                <ion-option value="Delaware">Delaware</ion-option>
+                <ion-option value="District Of Columbia">District Of Columbia</ion-option>
+                <ion-option value="Florida">Florida</ion-option>
+                <ion-option value="Georgia">Georgia</ion-option>
+                <ion-option value="Hawaii">Hawaii</ion-option>
+                <ion-option value="Idaho">Idaho</ion-option>
+                <ion-option value="Illinois">Illinois</ion-option>
+                <ion-option value="Indiana">Indiana</ion-option>
+                <ion-option value="Iowa">Iowa</ion-option>
+                <ion-option value="Kansas">Kansas</ion-option>
+                <ion-option value="Kentucky">Kentucky</ion-option>
+                <ion-option value="Louisiana">Louisiana</ion-option>
+                <ion-option value="Maine">Maine</ion-option>
+                <ion-option value="Maryland">Maryland</ion-option>
+                <ion-option value="Massachusetts">Massachusetts</ion-option>
+                <ion-option value="Michigan">Michigan</ion-option>
+                <ion-option value="Minnesota">Minnesota</ion-option>
+                <ion-option value="Mississippi">Mississippi</ion-option>
+                <ion-option value="Missouri">Missouri</ion-option>
+                <ion-option value="Montana">Montana</ion-option>
+                <ion-option value="Nebraska">Nebraska</ion-option>
+                <ion-option value="Nevada">Nevada</ion-option>
+                <ion-option value="New Hampshire">New Hampshire</ion-option>
+                <ion-option value="New Jersey">New Jersey</ion-option>
+                <ion-option value="New Mexico">New Mexico</ion-option>
+                <ion-option value="New York">New York</ion-option>
+                <ion-option value="North Carolina">North Carolina</ion-option>
+                <ion-option value="North Dakota">North Dakota</ion-option>
+                <ion-option value="Ohio">Ohio</ion-option>
+                <ion-option value="Oklahoma">Oklahoma</ion-option>
+                <ion-option value="Oregon">Oregon</ion-option>
+                <ion-option value="Pennsylvania">Pennsylvania</ion-option>
+                <ion-option value="Rhode Island">Rhode Island</ion-option>
+                <ion-option value="South Carolina">South Carolina</ion-option>
+                <ion-option value="South Dakota">South Dakota</ion-option>
+                <ion-option value="Tennessee">Tennessee</ion-option>
+                <ion-option value="Texas">Texas</ion-option>
+                <ion-option value="Utah">Utah</ion-option>
+                <ion-option value="Vermont">Vermont</ion-option>
+                <ion-option value="Virginia">Virginia</ion-option>
+                <ion-option value="Washington">Washington</ion-option>
+                <ion-option value="West Virginia">West Virginia</ion-option>
+                <ion-option value="Wisconsin">Wisconsin</ion-option>
+                <ion-option value="Wyoming">Wyoming</ion-option>
+              </ion-select>
+              </ion-item>
+               <p *ngIf="billingstate.hasError('required') && billingstate.touched" class="input-error">Please enter your billing state.</p>
+               </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Zip :</ion-col>
+              <ion-col>
+				   <div class="inputvalidation">
+                <ion-item no-lines>
+                  <ion-input type="text" formControlName="billingzip" value="{{userData.billingzip}}"></ion-input>
+                </ion-item>
+                 <p *ngIf="billingzip.hasError('required') && billingzip.touched" class="input-error">Please enter your billing zip.</p>
+                 <p *ngIf="billingzip.hasError('pattern') && billingzip.touched" class="input-error">Please enter your valid billing zip.</p>
+                 </div>
+              </ion-col>
+            </ion-row>
+          </div>
+
+        </ion-card>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button color="primary" type="submit" (click)="onEditAccountClick(formgroup.value)" [disabled]="!formgroup.valid">Save</button>
+ </form>
+
+
+</ion-content>

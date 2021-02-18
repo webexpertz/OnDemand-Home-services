@@ -1,0 +1,52 @@
+page-notifications {
+    .scroll-content {
+        padding: 0 0 16px !important;
+    }
+    .list{
+        padding-top: 12px;
+        .item {
+            border: medium none !important;
+            padding-left: 4px;
+            .item-inner {
+                border-bottom: medium none !important;
+                padding-right: 4px;
+            }
+            .label {
+                margin: 4px 0 0;
+                padding: 5px 0;
+            } 
+        }
+    } 
+    .card {
+        padding: 10px;
+        margin: 0 12px;
+        position: relative; 
+        > div {
+            margin-bottom: 3px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        } 
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .card-status {
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            color: #5cb85c;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 5px;
+            padding: 6px 10px;
+            text-transform: uppercase;
+        } 
+        .card-time {
+            color: #4d4d4d;
+            position: absolute;
+            right: 10px;
+            top: 7px;
+        }
+    }
+}

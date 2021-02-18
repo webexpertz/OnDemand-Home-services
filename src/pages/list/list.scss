@@ -1,0 +1,23 @@
+page-list {
+    .header {
+        background-image:url("../assets/imgs/list-page-bg.png");
+        background-size: 100% 100%;
+        &:before {
+            background-image: none !important; 
+        }
+        .toolbar-background {
+            background-color: transparent;
+            border: medium none;
+       }
+    } 
+    .card {
+        background-color: #f6f5f5;
+        >div {
+            padding: 0;
+        }
+        .card-header {
+            color: #ed6e00;
+            padding: 0;
+        }
+    }   
+}

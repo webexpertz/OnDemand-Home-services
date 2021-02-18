@@ -1,0 +1,245 @@
+<!--
+  Generated template for the StandardPropertyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+       <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button> 
+      <ion-title>Select Service</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-card class="responsivetext">
+      <!-- <div ></div> -->
+      <p *ngIf="spackage" classs="line">{{spackage}} Package</p>
+        <ion-list *ngFor="let item of services; let id=index ">
+        
+          <div [class.selected]="id==selectedId" *ngIf="item.package_id == 1" >
+           
+            <ion-row>
+                <ion-col col-10>
+                    <!-- <ion-label item-start *ngIf="item.package_id > schemeId">{{item.services}}</ion-label> -->
+             <ion-label item-start style="color: black;">{{item.services}}</ion-label>
+          </ion-col>
+            <ion-col col-2>
+ 
+                <ion-checkbox padding-top (ionChange)="upgradePackage(id,item,selectSer,item.package_id)"></ion-checkbox>
+           </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+<!-- 
+        <p *ngIf="services[index]['package_id'] >= 2">{{services[index]['type']}}Package </p> -->
+      <div class="line">
+        <p *ngIf="gpackage" >{{gpackage}} Package</p>
+      </div>
+     
+        <ion-list *ngFor="let item of services; let id=index ;">
+    
+          <div [class.selected]="id==selectedId" *ngIf="item.package_id == 2" >
+         
+            <ion-row>
+                <ion-col col-10>
+                    <ion-label [color]="item.package_id == 2 ? secondarycl:primarycl" item-start>{{item.services}}</ion-label>
+                    
+             <!-- <ion-label item-start color="primary" *ngIf="item.package_id <= schemeId" >{{item.services}}</ion-label> -->
+          </ion-col>
+          <div *ngIf="schemeId >= item.package_id">
+            <ion-col col-2>
+                <ion-checkbox padding-top (ionChange)="onItemClick(id,item,selectSer,item.package_id)"  ></ion-checkbox>
+           </ion-col>
+          </div>
+
+          <div *ngIf="item.package_id > schemeId">
+           <ion-col col-2  (click)="onPackage()" >
+ 
+            <ion-checkbox padding-top disabled ></ion-checkbox>
+           </ion-col>
+          </div>
+
+            </ion-row>
+            <ion-row *ngIf="otherselect && item.id == 35" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="othervalue" placeholder="Please enter description"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="general && item.id == 34" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="generalvalue" placeholder="Please enter description"></ion-input>
+            </ion-row>
+
+
+            <ion-row *ngIf="rta && item.id == 28" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="rtavalue" placeholder="Number of pieces"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="basic && item.id == 30" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="basicvalue" placeholder="Number of openings"></ion-input>
+            </ion-row>
+
+
+            <ion-row *ngIf="gutter && item.id == 25" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="guttervalue" placeholder="Height of gutter? 1st or 2nd story?"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="picturenumber && item.id == 27" class="inputfield">
+              <ion-input padding-left type="number" [(ngModel)]="picturenumbervalue" placeholder="Number of pictures to be hung"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="picturesize && item.id == 27" class="inputfield">
+              <ion-input padding-left type="number" [(ngModel)]="picturesizevalue" placeholder="Size of largest picture"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="tv && item.id == 23" class="inputfield">
+              <!-- <ion-input padding-left type="number" [(ngModel)]="tvvalue" placeholder="Size or largest picture"></ion-input> -->
+
+              <ion-list radio-group style="width: 100%;">
+                <ion-row style="align-items:center ;">
+                  <ion-col size="6">
+                  <p style="position: relative;top:3px;     border-top: none;">I have mount :</p>
+                  </ion-col>
+                  <ion-col  class="option"  size="3">
+                    <ion-label float-right>Yes
+                      <ion-radio checked="true" value="yes" style="position: relative;bottom:-3px;padding-left: 5px;" (click)="mountvalue('yes')" ></ion-radio>
+                    </ion-label>
+
+                  </ion-col>
+                  <ion-col class="option"  size="3">
+                    <ion-label float-right>No
+                      <ion-radio value="no" style="position: relative;bottom:-3px;padding-left: 5px;" (click)="mountvalue('no')" ></ion-radio></ion-label>
+                  </ion-col>
+               
+                </ion-row>
+                <ion-row class="inputfield">
+                  <ion-col size="6">
+                  <p style="border-top: none;">TV Size : </p>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input  padding-left type="number" [(ngModel)]="tvsize" style="position: relative;top:3px;" placeholder="size"></ion-input>
+                    </ion-col>
+                </ion-row>
+                </ion-list>
+
+            </ion-row>
+
+
+
+
+
+          </div>
+        </ion-list>
+        <div class="line">
+          <p *ngIf="ppackage" classs="line">{{ppackage}} Package</p>
+        </div> 
+ 
+        <ion-list *ngFor="let item of services; let id=index ;">
+    
+          <div [class.selected]="id==selectedId" *ngIf="item.package_id == 3" >
+         
+            <ion-row>
+                <ion-col col-10>
+                    <ion-label [color]="item.package_id == 3 ? primarycl:secondarycl" item-start>{{item.services}}</ion-label>
+                    
+             <!-- <ion-label item-start color="primary" *ngIf="item.package_id <= schemeId" >{{item.services}}</ion-label> -->
+          </ion-col>
+          <div *ngIf="schemeId >= item.package_id">
+            <ion-col col-2>
+                <ion-checkbox padding-top (ionChange)="onItemClick(id,item,selectSer,item.package_id)"  ></ion-checkbox>
+           </ion-col>
+          </div>
+
+          <div *ngIf="item.package_id > schemeId">
+           <ion-col col-2  (click)="onPackage()" >
+ 
+            <ion-checkbox padding-top disabled ></ion-checkbox>
+           </ion-col>
+          </div>
+
+            </ion-row>
+            <ion-row *ngIf="otherselect && item.id == 35" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="othervalue" placeholder="Please enter description"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="general && item.id == 34" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="generalvalue" placeholder="Please enter description"></ion-input>
+            </ion-row>
+
+
+            <ion-row *ngIf="rta && item.id == 28" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="rtavalue" placeholder="Number of pieces"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="basic && item.id == 30" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="basicvalue" placeholder="Number of openings"></ion-input>
+            </ion-row>
+
+
+            <ion-row *ngIf="gutter && item.id == 25" class="inputfield">
+              <ion-input padding-left type="text" [(ngModel)]="guttervalue" placeholder="Height of gutter? 1st or 2nd story?"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="picturenumber && item.id == 27" class="inputfield">
+              <ion-input padding-left type="number" [(ngModel)]="picturenumbervalue" placeholder="Number of pictures to be hung"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="picturesize && item.id == 27" class="inputfield">
+              <ion-input padding-left type="number" [(ngModel)]="picturesizevalue" placeholder="Size of largest picture"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="tvs && item.id == 33" class="inputfield">
+              <!-- <ion-input padding-left type="number" [(ngModel)]="tvvalue" placeholder="Size or largest picture"></ion-input> -->
+
+              <ion-list radio-group style="width: 100%;">
+                <ion-row style="align-items:center ;">
+                  <ion-col size="6">
+                  <p style="position: relative;top:3px; border-top: none;">I have mount :</p>
+                  </ion-col>
+                  <ion-col class="option" size="3">
+                    <ion-label float-right>Yes
+                      <ion-radio checked="true" value="yes" style="position: relative;bottom:-3px;padding-left: 5px;" (click)="mountsvalue('yes')" ></ion-radio>
+                    </ion-label>
+
+                  </ion-col>
+                  <ion-col class="option" size="3">
+                    <ion-label float-right>No
+                      <ion-radio value="no" style="position: relative;bottom:-3px;padding-left: 5px;" (click)="mountsvalue('no')" ></ion-radio></ion-label>
+                  </ion-col>
+               
+                </ion-row>
+                <ion-row class="inputfield">
+                  <ion-col size="6">
+                  <p style="border-top: none;">TV Size : </p>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input  padding-left type="numbers" [(ngModel)]="tvsizes" style="position: relative;top:3px;" placeholder="size"></ion-input>
+                    </ion-col>
+                </ion-row>
+                </ion-list>
+
+            </ion-row>
+
+
+
+
+
+          </div>
+        </ion-list>
+
+
+
+
+      </ion-card>
+  
+  
+  
+      <button ion-button [disabled]="mutliservice.length == 0" (click)="onMultiNextClick()">Next</button>
+  
+  
+  </ion-content>
+  

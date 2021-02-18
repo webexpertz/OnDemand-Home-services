@@ -1,0 +1,46 @@
+
+  <ion-header translucent>
+
+
+    <ion-navbar>
+      <ion-title>{{packagename}}Package</ion-title>
+    </ion-navbar>
+    <!-- <p slot="end" (click)="dismissModal()">Close</p> -->
+  </ion-header>
+<ion-content padding>
+  
+  <ion-card class="">
+    <!-- <div ></div> -->
+    <!-- <p  classs="line"></p> -->
+      <ion-list *ngFor="let item of services; let id=index ">
+      
+    
+         
+          <ion-row>
+              <ion-col col-10>
+                
+           <ion-label item-start style="color: black;">{{item.services}}</ion-label>
+        </ion-col>
+       
+          </ion-row>
+     
+      </ion-list>
+<!-- 
+      <p *ngIf="services[index]['package_id'] >= 2">{{services[index]['type']}}Package </p> -->
+  
+ 
+    
+
+     
+
+
+<button ion-button (click)="gotocard()">Next</button>
+
+    </ion-card>
+
+
+
+  
+
+
+</ion-content>

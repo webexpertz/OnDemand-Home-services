@@ -1,0 +1,135 @@
+<!--
+  Generated template for the CardDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Card Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formgroup">
+    <ion-list no-lines>
+      <ion-item no-lines>
+        <ion-card>
+          <ion-card-header color="primary">
+            <ion-icon name="card"></ion-icon>
+            <b>&nbsp; Credit Card</b>
+          </ion-card-header>
+          <div style="padding:15px">
+            <ion-row>
+              <ion-col>Card Type :</ion-col>
+              <ion-col>
+                <div class="paymentcard">
+                  <span><img src="assets/card/card1.svg"></span>
+                  <span><img src="assets/card/card2.svg"></span>
+                  <span><img src="assets/card/card3.svg"></span>
+                  <span><img src="assets/card/card5.svg"></span>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col> Card Name :</ion-col>
+              <ion-col>
+                <div class="inputvalidation">
+                  <ion-item no-lines>
+                    <ion-input  type="text" formControlName="cardname" value="{{userData.cardname}}"></ion-input>
+                  </ion-item>
+                  <p *ngIf="cardname.hasError('required') && cardname.touched" class="input-error">Please enter your card name.</p>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Card Number :</ion-col>
+              <ion-col>
+                <div class="inputvalidation">
+                  <ion-item no-lines>
+                    <ion-input  type="tel" formControlName="cardno" value="{{userData.cardnumber}}"></ion-input>
+                  </ion-item>
+                  <p *ngIf="cardno.hasError('required') && cardno.touched" class="input-error">Please enter your card number.</p>
+                  <p *ngIf="cardno.hasError('pattern') && cardno.touched" class="input-error">Please enter your valid card number.</p>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>CVC :</ion-col>
+              <ion-col>
+                <div class="inputvalidation">
+                  <ion-item no-lines>
+                    <ion-input  type="tel" formControlName="cardcvc" value="{{userData.cvc}}"></ion-input>
+                  </ion-item>
+                  <p *ngIf="cardcvc.hasError('required') && cardcvc.touched" class="input-error">Please enter card cvc number.</p>
+                  <p *ngIf="cardcvc.hasError('pattern') && cardcvc.touched" class="input-error">Please enter valid card cvc number.</p>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Card Exp :</ion-col>
+              <ion-col>
+                <div class="inputvalidation">
+                  <ion-item>  <ion-select formControlName="cardexpmonth">
+                    <ion-option value="">Select Month</ion-option>
+                    <ion-option value="01">01</ion-option>
+                    <ion-option value="02">02</ion-option>
+                    <ion-option value="03">03</ion-option>
+                    <ion-option value="04">04</ion-option>
+                    <ion-option value="05">05</ion-option>
+                    <ion-option value="06">06</ion-option>
+                    <ion-option value="07">07</ion-option>
+                    <ion-option value="08">08</ion-option>
+                    <ion-option value="09">09</ion-option>
+                    <ion-option value="10">10</ion-option>
+                    <ion-option value="11">11</ion-option>
+                    <ion-option value="12">12</ion-option>
+                  </ion-select>
+
+                    <ion-select formControlName="cardexpyear">
+                      <ion-option value="">Select Year</ion-option>
+                      <ion-option value="2020">2020</ion-option>
+                      <ion-option value="2021">2021</ion-option>
+                      <ion-option value="2022">2022</ion-option>
+                      <ion-option value="2023">2023</ion-option>
+                      <ion-option value="2024">2024</ion-option>
+                      <ion-option value="2025">2025</ion-option>
+                      <ion-option value="2026">2026</ion-option>
+                      <ion-option value="2027">2027</ion-option>
+                      <ion-option value="2028">2028</ion-option>
+                      <ion-option value="2029">2029</ion-option>
+                      <ion-option value="2030">2030</ion-option>
+                      <ion-option value="2031">2031</ion-option>
+                      <ion-option value="2032">2032</ion-option>
+                      <ion-option value="2033">2033</ion-option>
+                      <ion-option value="2034">2034</ion-option>
+                      <ion-option value="2035">2035</ion-option>
+                      <ion-option value="2036">2036</ion-option>
+                      <ion-option value="2037">2037</ion-option>
+                      <ion-option value="2038">2038</ion-option>
+                      <ion-option value="2039">2039</ion-option>
+                      <ion-option value="2040">2040</ion-option>
+                      <ion-option value="2041">2041</ion-option>
+                      <ion-option value="2042">2042</ion-option>
+                      <ion-option value="2043">2043</ion-option>
+                      <ion-option value="2044">2044</ion-option>
+                      <ion-option value="2045">2045</ion-option>
+                      <ion-option value="2046">2046</ion-option>
+                      <ion-option value="2047">2047</ion-option>
+                      <ion-option value="2048">2048</ion-option>
+                      <ion-option value="2049">2049</ion-option>
+                      <ion-option value="2050">2050</ion-option>
+                    </ion-select>
+                  </ion-item>
+                  <p *ngIf="cardexpyear.hasError('required') && cardexpyear.touched" class="input-error">Please enter your card expire month/year.</p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </form>
+  <button ion-button color="primary" type="submit" (click)="makePayment(formgroup.value)" [disabled]="!formgroup.valid">Pay Now ${{ getPlanamount }}</button>
+</ion-content>

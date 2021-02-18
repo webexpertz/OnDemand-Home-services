@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pending Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-list no-lines >
+		<ion-item no-lines *ngFor="let notify of alldata">
+      <ion-card>
+      
+        <div style="padding:11px 16px">
+          <ion-row item-content>
+            <ion-col> <strong>Name :</strong> </ion-col>
+            <ion-col> {{notify.name}} </ion-col>
+            <ion-col> {{notify.length}} </ion-col>
+
+          </ion-row>
+          <ion-row>
+            <ion-col> <strong>Amount :</strong></ion-col>
+            <ion-col> {{notify.amount}}</ion-col>
+          </ion-row>
+         
+          <ion-row>
+            <ion-col> <strong>Description :</strong> </ion-col>
+            <ion-col>{{notify.description}}</ion-col>
+          </ion-row>
+        
+        </div>
+<button ion-button (click)="extraPay(notify)">Pay</button>
+      </ion-card>
+			<!-- <ion-card>
+				<p>Name - {{notify.name}}</p>
+			<p>Description - {{notify.description}}</p>
+			<p class="highlighted">Amount - {{notify.amount}}</p>
+			</ion-card> -->
+    </ion-item>
+    <p style="color:red"  *ngIf="alldata.length == 0" text-center>There are currently no pending payments</p>
+	 </ion-list>
+</ion-content>

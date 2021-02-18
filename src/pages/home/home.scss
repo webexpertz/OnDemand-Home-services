@@ -1,0 +1,107 @@
+page-home {
+    .header-md::after, .header::after{
+        background-image: none !important;
+    }
+   .bar-buttons .icon {
+        color: #fff;
+    }
+    .toolbar-background {
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+    // fixed header 
+    .toolbar-background {
+        background-image: url("../assets/imgs/home-top.jpg");
+        background-position: center center;
+        background-size: 100% 100%;
+    }
+    .header .toolbar {
+      
+        min-height: inherit !important;
+        // padding: 56.25% 0 0 !important;
+        @media screen and (orientation: landscape) {
+            padding: 28.125% 0 0 !important;
+          }
+          
+          @media screen and (orientation: portrait) {
+            padding: 56.25% 0 0 !important;
+          }
+    }
+    .content .fixed-content {
+        // margin-top: 56.25% !important;
+        @media screen and (orientation: landscape) {
+            margin-top: 28.125% !important;
+          } 
+          @media screen and (orientation: portrait) {
+            margin-top: 56.25% !important;
+          }
+    }
+    .scroll-content{
+        @media screen and (orientation: landscape) {
+            margin-top: 28.125% !important;
+          } 
+          @media screen and (orientation: portrait) {
+            margin-top: 56.25% !important;
+          }
+    }
+    .parallax-header {
+        display: none;
+    }
+    .header [menutoggle]{
+        position: absolute;
+        top: 20px;
+        z-index: 9;  
+    }
+    .bar-button-md { 
+        top: 15px;
+    }
+    // card
+    .card {
+        background-color: #f6f5f5;
+        padding: 15px 10px;
+        width: calc(100% - 30px);
+        margin: 15px 15px 0;
+        > span {
+            text-transform: capitalize;
+        }
+        .icon {
+            color: #2b2b2b;
+            margin-right: 15px;
+            padding-right: 15px;
+            position: relative;
+            top: 2px;
+            &:after {
+                background-color: #a1a1a1;
+                content: "";
+                height: 30px;
+                position: absolute;
+                right: 0;
+                top: -7px;
+                width: 1px;
+            }
+        }
+    }
+    .list-schedule{
+        border-top: 1px solid #a1a1a1;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        margin: 0 auto 15px;
+        width: calc(100% - 30px);
+        .item {
+            padding: 0;
+            .item-inner {
+                padding-right: 0 !important;
+            }
+        }
+        .label {
+            margin: 0;
+        }
+        .card {
+        margin: 0;
+        width: 100%;
+            .highlighted {
+                color: #ed6e00;
+            }
+        }
+    }
+}

@@ -1,0 +1,148 @@
+page-signup {
+    .scroll-content {
+        padding-bottom: 0 !important;   
+    }
+    .signpage {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height:calc(100% - 16px); 
+    }
+    .brand-logo {
+        text-align: center;
+        margin-bottom: 30px;
+         img {
+            max-width: 250px;
+        }
+    }  
+    .content {
+        background-color: #fea85b;
+        background-image: url("../assets/imgs/logi-pattern.jpg") !important;
+        background-size: cover; 
+    }
+    .signpage[padding] {
+        padding: 0;
+    }
+    .list[inset] {
+        margin: 0;
+        padding-top: 40px;
+    }
+    .sign-button {
+        background-color: #1c1575;
+        border-radius: 3px;
+        color: #fff;
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 500;
+        height: 2.8em;
+        text-transform: uppercase;
+        width: 100%;
+        margin-left: 0;
+    } 
+    .text-input {
+        font-size: 16px;
+    }
+    .inputvalidation {
+        margin-bottom: 15px;
+        padding:0;
+        position: relative; 
+            .icon {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                z-index: 9;  
+          }
+          .item-block { 
+            border: medium none !important;
+            border-radius: 3px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            min-height: 40px;
+            padding-left: 34px !important; 
+            & + p {
+                background-color: #ed6e00;
+                border-radius: 3px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+                color:#fff;
+                margin: 0;
+                padding:2px 5px;
+                position: absolute;
+                top: 100%;
+                z-index: 9;  
+                animation-name:zoomIn;
+                animation-duration: 250ms; 
+                &:after{
+                    border-color: transparent transparent #ed6e00;
+                    border-style: solid;
+                    border-width: 0 5px 8px;
+                    content: "";
+                    left: 10px;
+                    position: absolute;
+                    top: -8px;
+                }
+            }
+        }
+    }
+    .signin-button button {
+        display: block;
+        text-align: center;
+        background: none;
+        color: #1c1475;
+        width: 100%;
+        margin: 5px 0;
+        text-transform: uppercase;
+        font-weight:400;
+        letter-spacing: 0.5px;
+        font-size:15px;
+    }
+    .term-condition{
+        color: #fff;
+        padding-bottom: 16px;
+            button {
+            background: none;
+            color:#1c1475;
+            text-transform: capitalize;
+            }
+    }
+    // @media only screen and (max-width: 767px) {
+    //     .list[inset] {
+    //         margin: 0;
+    //         padding-top: 40px;
+    //     }
+    //   }
+
+    .checkbox-ios .checkbox-checked {
+        border-color: #488aff;
+        background-color: #488aff;
+        border-radius: 0;
+        width: 20px;
+        height: 20px;
+        margin-top: 8px;
+        display: block;
+        position: relative;
+        top: 4px;
+    }
+
+}
+@keyframes zoomIn{
+    0%{
+        opacity:0;
+        transform:scale3d(.3,.3,.3)
+    }
+    50%{
+        opacity:1
+    }
+ 
+}
+.error{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+    color: #fff;
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 250ms;
+    animation-duration: 250ms;
+    padding-left: 10px;
+}
+
+
+// --------start-media-query-css---------

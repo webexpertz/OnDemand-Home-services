@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>calendar</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<div class="tech-calender">
+	<div class="calender-card">
+	 <div class="title">{{ viewTitle }}</div>
+		<calendar [eventSource]="eventSource"
+        [markDisabled]="markDisabled"
+        [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate"
+        (onEventSelected)="onEventSelected($event)"
+        (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)"       
+        step="30"
+        class="calendar">
+      </calendar>
+      </div>
+     
+     <ion-list [hidden]="isHide">
+		<ion-item *ngFor="let booking of allSelectedBookings">
+			<ion-card> 
+			 <div class="calender-booking">
+			   <div class="card">
+				<div class="card-title">{{booking.service}}</div>
+				<div class="card-time">{{booking.booking_date}} - {{booking.booking_time}}</div>
+				<div class="card-title">Status - {{booking.status}}</div>
+        <div class="card-decription">{{booking.techname}} - {{booking.techcontact}}</div>
+        <ion-row>
+        <img src="assets/icon/create-outline.svg" size="30" *ngIf="booking.status == 'requested'" (click)="editBooking(booking)"  style="width:10%">
+        <img src="assets/icon/trash-outline.svg" size="30" *ngIf="booking.status == 'requested'" (click)="showAlert(booking)" style="width:10%">
+        <img src="assets/icon/create-outline (1).svg" *ngIf="booking.status == 'accept'" size="30"   style="width:10%">
+        <img *ngIf="booking.status == 'accept'" src="assets/icon/trash-outline (1).svg" size="30"  style="width:10%">
+      </ion-row>
+        <!-- <button ion-button (click)="editBooking(booking)">Edit</button>			 -->
+			  </div>
+			  </div>
+			</ion-card>
+		</ion-item>
+	  </ion-list>
+ </div>
+</ion-content>
+

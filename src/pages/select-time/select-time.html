@@ -1,0 +1,38 @@
+<!--
+  Generated template for the SelectTimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Select Time</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <div class="selectetime">
+<ion-card>
+  <form [formGroup]="formgroup">
+  <ion-item *ngIf="availableTimes.length > '0' ">
+    <ion-label>Select Time</ion-label>
+  <ion-select formControlName="selectedTime">
+    <ion-option *ngFor="let time of availableTimes; let idx=index" >{{time |date: "shortTime"}}</ion-option>
+  </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="availableTimes.length == '0' ">
+    <p>Time Is Over For Today. Please Select Other Date.</p>
+  </ion-item>
+  
+  </form>
+</ion-card>
+<ion-item>
+  <ion-input type="text" placeholder="Write note" [(ngModel)]="notes"> </ion-input>
+</ion-item>
+
+  <button ion-button full [disabled]="formgroup.value.selectedTime==''" type="submit" (click)="onSubmitClick(formgroup.value)">Submit</button>
+
+</div>
+</ion-content>

@@ -1,0 +1,83 @@
+page-editmemebership {
+.scroll-content > .label {
+        font-size: 1.15em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin: 15px 0;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    // butoon
+    .bar-buttons {
+        margin: 0;
+        .button {
+            font-size: 1.4rem;
+            font-weight: 500;
+            height: 2.5em;
+            text-transform: uppercase;
+            width: calc(50% - 6px);
+            &.button-default {
+                background-color: #ed6d00;
+            }
+            &.button-outline{
+                border-color: #2a272e;
+                color: #2a272e;
+            }
+        }
+    }
+
+    // swiper-slide
+    .swiper-container {
+        margin-top: 2em;
+        .swiper-slide {
+            align-items: flex-start;
+            .card {
+                background-color: #f6f4f5;
+                border-radius: 3px;
+                box-shadow: none;
+                margin: 0;
+                padding-bottom: 20px;
+                width: 100%;
+                .card-header {
+                    background-color: #2a272e !important;
+                    color: #ed6d00;
+                    padding: 10px 16px;
+                    .toolbar-title{
+                        color: #ed6d00;
+                        font-weight: 500;
+                    }
+                }
+                .price-package {
+                    color: #2a272e;
+                    font-size: 1.75em;
+                    font-weight: 500;
+                    sub {
+                        bottom: 0;
+                        font-size: 70%;
+                        font-weight: 400;
+                    }
+                }
+                ion-label {
+                    margin: 20px 0 !important;
+                    overflow: visible;
+                    padding: 0 15px;
+                    white-space: normal;
+                }
+                .button {
+                    background-color: #ed6d00;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    height: 2.5em;
+                    text-transform: uppercase; 
+                } 
+            }
+        }
+    }
+
+    .swipe-img {
+        text-align: center;
+        margin: 50px auto 0;
+        max-width: 130px;
+        opacity: 0.8;
+    }
+}

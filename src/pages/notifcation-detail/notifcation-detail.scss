@@ -1,0 +1,29 @@
+page-notifcation-detail {
+    .card {
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+        .label {
+            margin: 10px 0;
+        }
+        .label-status {
+            color: #232a31;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+        }
+    }
+     .button {
+        background-color: #ed6d00;
+        border-radius: 4px;
+        display: block;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 600;
+        height: 4rem;
+        margin: 5px 0;
+        text-transform: uppercase;
+        width: 100%;
+    }
+}

@@ -1,0 +1,59 @@
+page-schedule-date {
+    .card{
+        margin: 0 0 15px;
+    width: 100%;
+    }
+    // header
+    .card-header {
+        background-color: #f6f4f5;
+        text-align: center;
+        .icon {
+            background-color: #fd9615;
+            border-radius: 50%;
+            color: #fff;
+            height: 28px;
+            margin: 0 10px;
+            padding: 4px 0 0;
+            position: relative;
+            width: 28px;
+        }
+    }
+    // calender
+    .calender-card {
+        background-color: #f6f4f5;
+        border-radius: 4px;
+        margin: 15px auto;
+        max-width: 300px;
+        // padding: 10px; 
+    }
+    .swiper-slide{
+        font-size: 15px;
+        table{
+            border: none!important;
+        }
+        td, th {
+            border: medium none !important;
+            border-radius: 50%;
+            height: 38px;
+            padding:8px 0 !important;
+            text-transform: uppercase;
+            width: 38px;
+        }
+        // is selected
+        .monthview-selected[_ngcontent-c1] {
+            background-color: #2a272e; 
+        }
+    }
+    // next button
+    .button {
+        border-radius: 4px;
+        background-color: #ed6d00;
+        font-size: 1.4rem;
+        font-weight: 600;
+        height: 3em;
+        line-height:3em;
+        margin: 1em 0;
+        text-transform: uppercase;
+        width: 100%;
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "home-services",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "8158c7a4"
+}

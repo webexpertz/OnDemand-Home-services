@@ -1,0 +1,38 @@
+<!--
+  Generated template for the MembershipPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Membership</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-label text-center>Choose Plan</ion-label>
+  <ion-buttons>
+  <button ion-button [outline]="selectedPackage==='annually'" (click)="onPlanClick('monthly')">Monthly</button>
+  <button ion-button [outline]="selectedPackage==='monthly'" (click)="onPlanClick('annually')">Annually</button>
+  </ion-buttons>
+  <ion-slides>
+    <ion-slide *ngFor="let plan of plansWithPackage" >
+      <ion-card>
+        <ion-card-header style="background-color: #222222">
+          <ion-title>{{plan.type}}</ion-title>
+        </ion-card-header>
+        <ion-label class="price-package"><sup>$</sup>{{ selectedPackage === 'monthly' ? plan.monthfee : plan.annuallfee }}<sub>/{{ selectedPackage === 'monthly' ? 'Monthly' : 'Annually' }}</sub></ion-label>
+        <ion-label>{{ selectedPackage === 'monthly' ? plan.monthlyinfo : plan.annualinfo }}</ion-label>
+        <button ion-button (click)="onPaymentClick(plan,selectedPackage === 'monthly' ? plan.monthfee : plan.annuallfee)">Save${{ selectedPackage === 'monthly' ? plan.monthfee : plan.annuallfee }}</button>
+
+      </ion-card>
+
+      <div class="swipe-img"> <img src="../assets/imgs/swipe.png"></div>
+    </ion-slide>
+
+  </ion-slides>
+
+
+</ion-content>

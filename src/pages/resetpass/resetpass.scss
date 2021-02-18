@@ -1,0 +1,138 @@
+page-resetpass {
+    .scroll-content {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 0 !important; 
+        .backtologin {
+            position: fixed; 
+            top:10px;
+            left: 0;
+            padding: 15px;
+        } 
+    } 
+    .brand-logo {
+        text-align: center;
+        margin-bottom: 10px;
+        img {
+            max-width: 250px;
+        } 
+    }
+   .content {
+        background-color: #fea85b;
+        background-image: url("../assets/imgs/logi-pattern.jpg");
+        background-size: cover; 
+    }
+    .list[inset] {
+        margin: 0;
+        overflow: visible;
+    }
+    .list-ios[inset],.list-md[inset], .item:last-child, .item:first-child{
+        border-radius: 0;
+    }
+    .item .item-inner {
+        border: medium none !important;
+        box-shadow: none !important;
+    }
+    .login-button {
+        background-color: #1c1575;
+        border-radius: 3px;
+        color: #fff;
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 500;
+        height: 2.8em;
+        text-transform: uppercase;
+        width: 100%;
+    } 
+    .sign-button {
+        background-color: transparent;
+        color: #1c1475;
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 10px;
+        padding: 0;
+        text-transform: uppercase;
+    } 
+    .inputvalidation {
+        margin-bottom: 15px;
+        padding:0;
+        position: relative;
+            .icon {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                z-index: 9;
+          }
+          .item-block { 
+            border: medium none !important;
+            border-radius: 3px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            min-height: 40px;
+            padding-left: 30px !important;
+            & + p {
+                background-color: #ed6e00;
+                border-radius: 3px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+                color:#fff;
+                margin: 0;
+                padding: 2px 5px; 
+                position: absolute;
+                top: 100%;
+                z-index: 9; 
+                animation-name:zoomIn; 
+                animation-duration:250ms; 
+                &:after{
+                    border-color: transparent transparent #ed6e00;
+                    border-style: solid;
+                    border-width: 0 5px 8px;
+                    content: "";
+                    left: 10px;
+                    position: absolute;
+                    top: -8px;
+                }
+            } 
+        } 
+    }
+    .text-input {
+        font-size: 16px;
+    }
+    
+    .forget-pass {
+        color: #fff;
+        margin: 20px 0 0;
+        text-align: center;
+        width: 100%;
+        .col{
+            padding: 0; 
+        }
+        .sepration{
+            position: relative;
+            &:after{
+                left: 0;
+            }
+            &:before{
+                right: 0;
+            }
+            &:after, &:before{
+                background-color: #fff;
+                content: "";
+                height: 1px;
+                position: absolute;
+                top: 10px;
+                width: calc(50% - 15px);  
+            }
+        }
+    }
+}
+
+@keyframes zoomIn{
+    0%{
+        opacity:0;
+        transform:scale3d(.3,.3,.3)
+    }
+    50%{
+        opacity:1
+    }
+}

@@ -1,0 +1,236 @@
+<ion-content padding class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+<!--
+	<ion-icon *ngIf="findios=='isios'" name="ios-arrow-back"  class="back-arrow"  (click)="loginpage()"> <span>Back</span></ion-icon> 
+		<ion-icon *ngIf="findios=='notios'" name="arrow-round-back" (click)="loginpage()"></ion-icon> 
+-->
+<ion-grid>
+
+	<div class="brand-logo"><img src="assets/imgs/logo1.png"></div>
+
+	<form [formGroup]="formgroup">
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon name="ios-contact-outline"></ion-icon>
+					<ion-item>  
+					<ion-input type="text" placeholder="Username" formControlName="username"></ion-input>
+					</ion-item>
+					<p *ngIf="username.hasError('required') && username.touched">Please enter your username</p>
+					<p 	*ngIf="usernames.errors?.maxlength">Maximum 10 characters can be used</p>
+					<!-- <p 	*ngIf="username.errors.maxlength">Maximum 10 characters can be used</p> -->
+				</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon name="ios-contact-outline"></ion-icon>
+					<ion-item>  
+					<ion-input type="text" placeholder="First name" formControlName="firstname"></ion-input>
+					</ion-item>
+					<p *ngIf="firstname.hasError('required') && firstname.touched">Please enter your first name</p>
+				</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon name="ios-contact-outline"></ion-icon>
+					<ion-item>  
+					<ion-input type="text" placeholder="Last name" formControlName="lastname"></ion-input>
+					</ion-item>
+					<p *ngIf="lastname.hasError('required') && lastname.touched">Please enter your last name</p>
+				</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon name="ios-mail-outline"></ion-icon>
+					<ion-item>
+					<ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+					</ion-item>
+					<p *ngIf="email.hasError('required') && email.touched">Please enter your email address</p>
+					<p *ngIf="email.hasError('pattern') && email.touched">Please enter a valid email address</p>
+				</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon name="ios-call-outline"></ion-icon>
+					<ion-item>  
+					<ion-input type="number" placeholder="Phone" formControlName="contact"></ion-input>
+					</ion-item>
+					<p *ngIf="contact.hasError('required') && contact.touched"> Please enter your phone number</p>
+					<p *ngIf="contact.hasError('pattern') && contact.touched">Please enter valid phone number.</p>
+				</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon name="ios-lock-outline"></ion-icon>
+					<ion-item>
+					<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+					</ion-item>
+					<p *ngIf="password.hasError('required') && password.touched">Please enter your password</p>
+				</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon>
+			<ion-item no-lines>
+				
+			  <ion-input  type="text" formControlName="address" placeholder="Address" value=""></ion-input>
+			</ion-item>
+			<p *ngIf="address.hasError('required') && address.touched" class="input-error">Please enter your street address.</p>
+			</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon ios="ios-home-outline" md="md-home"></ion-icon>
+			<ion-item no-lines>
+			  <ion-input   type="text"   formControlName="apt" value="" placeholder="Apt/Suite"></ion-input>
+			</ion-item>
+			<!-- <p *ngIf="apt.hasError('required') && apt.touched" class="input-error">Please enter your Apt/Suite.</p> -->
+			</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon ios="ios-stats-outline" md="md-stats"></ion-icon>
+			<ion-item no-lines>
+		
+			  <ion-input type="text" formControlName="city" value="" placeholder="City"></ion-input>
+			</ion-item>
+			 <p *ngIf="city.hasError('required') && city.touched" class="input-error">Please enter your city.</p>
+			</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon ios="ios-flag-outline" md="md-flag"></ion-icon>
+				<ion-item>  <ion-select formControlName="state" placeholder="State">
+			 
+			  <ion-option value="Alabama">Alabama</ion-option>
+			  <ion-option value="Alaska">Alaska</ion-option>
+			  <ion-option value="Arizona">Arizona</ion-option>
+			  <ion-option value="Arkansas">Arkansas</ion-option>
+			  <ion-option value="California">California</ion-option>
+			  <ion-option value="Colorado">Colorado</ion-option>
+			  <ion-option value="Connecticut">Connecticut</ion-option>
+			  <ion-option value="Delaware">Delaware</ion-option>
+			  <ion-option value="District Of Columbia">District Of Columbia</ion-option>
+			  <ion-option value="Florida">Florida</ion-option>
+			  <ion-option value="Georgia">Georgia</ion-option>
+			  <ion-option value="Hawaii">Hawaii</ion-option>
+			  <ion-option value="Idaho">Idaho</ion-option>
+			  <ion-option value="Illinois">Illinois</ion-option>
+			  <ion-option value="Indiana">Indiana</ion-option>
+			  <ion-option value="Iowa">Iowa</ion-option>
+			  <ion-option value="Kansas">Kansas</ion-option>
+			  <ion-option value="Kentucky">Kentucky</ion-option>
+			  <ion-option value="Louisiana">Louisiana</ion-option>
+			  <ion-option value="Maine">Maine</ion-option>
+			  <ion-option value="Maryland">Maryland</ion-option>
+			  <ion-option value="Massachusetts">Massachusetts</ion-option>
+			  <ion-option value="Michigan">Michigan</ion-option>
+			  <ion-option value="Minnesota">Minnesota</ion-option>
+			  <ion-option value="Mississippi">Mississippi</ion-option>
+			  <ion-option value="Missouri">Missouri</ion-option>
+			  <ion-option value="Montana">Montana</ion-option>
+			  <ion-option value="Nebraska">Nebraska</ion-option>
+			  <ion-option value="Nevada">Nevada</ion-option>
+			  <ion-option value="New Hampshire">New Hampshire</ion-option>
+			  <ion-option value="New Jersey">New Jersey</ion-option>
+			  <ion-option value="New Mexico">New Mexico</ion-option>
+			  <ion-option value="New York">New York</ion-option>
+			  <ion-option value="North Carolina">North Carolina</ion-option>
+			  <ion-option value="North Dakota">North Dakota</ion-option>
+			  <ion-option value="Ohio">Ohio</ion-option>
+			  <ion-option value="Oklahoma">Oklahoma</ion-option>
+			  <ion-option value="Oregon">Oregon</ion-option>
+			  <ion-option value="Pennsylvania">Pennsylvania</ion-option>
+			  <ion-option value="Rhode Island">Rhode Island</ion-option>
+			  <ion-option value="South Carolina">South Carolina</ion-option>
+			  <ion-option value="South Dakota">South Dakota</ion-option>
+			  <ion-option value="Tennessee">Tennessee</ion-option>
+			  <ion-option value="Texas">Texas</ion-option>
+			  <ion-option value="Utah">Utah</ion-option>
+			  <ion-option value="Vermont">Vermont</ion-option>
+			  <ion-option value="Virginia">Virginia</ion-option>
+			  <ion-option value="Washington">Washington</ion-option>
+			  <ion-option value="West Virginia">West Virginia</ion-option>
+			  <ion-option value="Wisconsin">Wisconsin</ion-option>
+			  <ion-option value="Wyoming">Wyoming</ion-option>
+			</ion-select>
+		</ion-item>
+		 <p *ngIf="state.hasError('required') && state.touched" class="input-error">Please enter your state.</p>
+		 </div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<div class="inputvalidation">
+				<ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon>
+			<ion-item no-lines>
+			  <ion-input type="number" formControlName="zip" value="" placeholder="Zip"></ion-input>
+			</ion-item>
+			 <p *ngIf="zip.hasError('required') && zip.touched" class="input-error">Please enter your zip code.</p>
+			 <p *ngIf="zip.hasError('pattern') && zip.touched" class="input-error">Please enter your valid zip code.</p>
+			 </div>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<ion-checkbox  checked (ionChange)="onClickterm($event.checked)"  ></ion-checkbox>
+			<ion-col class="term-condition">
+			<span> I agree to the </span>	<button  (click)="onTerm()">Terms and Conditions.</button> 
+			</ion-col>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<p *ngIf="isMsg" class="error">Please check that you agree to our terms & conditions</p>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<button class="sign-button btn" (click)="signup(formgroup.value)" type="submit" [disabled]="!formgroup.valid|| !ischeck ">Sign Up</button>
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="input-area">
+		<ion-col size="12">
+			<ion-col class="signin-button">
+				<button  (click)="loginpage()">Sign In</button>
+			</ion-col>
+		</ion-col>
+	</ion-row>
+
+</form>
+
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
+     <div class="herder-image">
+    <div class="profile-image-show">
+	<div [hidden]="lastImage === null" class="newpic">
+		<img id="profile-image" class="profile-image"  src="{{base64Image}}">
+		<span class="upload-image after-save" (click)="uploadImage(userData.id)">Save</span>
+	</div>
+	<div [hidden]="lastImage !== null" class="newpic">
+		<span *ngIf='userData.image; else defaultimg'><img id="profile-image" src="{{imagebaseUrl}}{{userData.image}}"></span>
+		<ng-template #defaultimg><img id="profile-image" src="assets/imgs/default.png"></ng-template>
+		<ion-icon name="camera" class="camera upload-image" (click)="presentActionSheet()"></ion-icon>
+	</div>
+		<h3 id="profile-name">{{userData.username}}</h3>  
+		<p class="profile-email">{{userData.email}}</p> 
+</div>
+</div>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list no-lines>
+    <ion-item no-lines>
+      <ion-card>
+        <ion-card-header color="primary">
+          <ion-icon name="person"></ion-icon>
+          <b>&nbsp; Personal Information</b>
+        </ion-card-header>
+        <div style="padding:15px">
+          <ion-row item-content>
+            <ion-col> Name :</ion-col>
+            <ion-col> {{userData.firstname}} {{userData.lastname}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Email :</ion-col>
+            <ion-col> {{userData.email}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Phone :</ion-col>
+            <ion-col>{{userData.mobile}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Alternate phone :</ion-col>
+            <ion-col>{{userData.alternate_phone}}</ion-col>
+          </ion-row>
+        </div>
+
+      </ion-card>
+    </ion-item>
+
+
+    <!-- Additional Start -->
+    <!-- <ion-item no-lines>
+      <ion-card>
+        <ion-card-header color="primary">
+          <ion-icon name="person"></ion-icon>
+          <b>&nbsp; Additional Information</b>
+        </ion-card-header>
+        <div style="padding:15px">
+          <ion-row item-content>
+            <ion-col> Name :</ion-col>
+            <ion-col> {{userData.additionalfirstname}} {{userData.additionallastname}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Email :</ion-col>
+            <ion-col> {{userData.additionalemail}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Phone :</ion-col>
+            <ion-col>{{userData.additionalmobile}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Alternate phone :</ion-col>
+            <ion-col>{{userData.additionalalternate_phone}}</ion-col>
+          </ion-row>
+        </div>
+
+      </ion-card>
+    </ion-item> -->
+    <!-- Additional End -->
+
+    <ion-item>
+      <ion-card>
+        <ion-card-header color="primary" padding=0px>
+          <ion-icon name="home"></ion-icon>
+          <b>&nbsp; Physical Address</b>
+        </ion-card-header>
+        <div style="padding:15px">
+          <ion-row>
+            <ion-col> Street Address :</ion-col>
+            <ion-col> {{userData.address}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Apt/Suit :</ion-col>
+            <ion-col> {{userData.apt}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>City/State Zip :</ion-col>
+            <ion-col>{{userData.city}} {{userData.state}} {{userData.zip}}</ion-col>
+          </ion-row>
+        </div>
+      </ion-card>
+    </ion-item>
+
+    <ion-item>
+      <ion-card>
+        <ion-card-header color="primary" padding=0px>
+          <ion-icon name="ios-document"></ion-icon>
+          <b>&nbsp; Billing Information</b>
+        </ion-card-header>
+        <div style="padding:15px">
+          <ion-row>
+            <ion-col> Street Address :</ion-col>
+            <ion-col> {{userData.billingaddresss}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Apt/Suit :</ion-col>
+            <ion-col> {{userData.billingapt}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>City/State Zip :</ion-col>
+            <ion-col> {{userData.billingcity}} {{userData.billingstate}} {{userData.billingzip}}</ion-col>
+          </ion-row>
+        </div>
+
+      </ion-card>
+    </ion-item>
+    <ion-item>
+      <ion-card>
+        <ion-card-header color="primary" padding=0px (click)="showpackInfo()">
+          <ion-icon name="briefcase"></ion-icon>
+          <b>&nbsp; My Package</b>
+        </ion-card-header>
+        <div style="padding:15px"  *ngFor="let scheme of schemedetails">
+          <ion-row class="currentPkg">
+            <ion-col>Your current package :</ion-col>
+            <ion-col><span class="currentPkgPrice"> {{scheme.type}}</span><ion-icon name="ios-checkmark-circle-outline"></ion-icon></ion-col>
+          </ion-row> 
+          <ion-row class="currentPkg">
+            <ion-col><span class="currentPkgPlan">{{scheme.schemeplan}}</span> price :</ion-col>
+            <ion-col><span class="currentPkgPrice"> ${{scheme.amount}} </span></ion-col>
+          </ion-row> 
+          <ion-row [hidden]=isHide>
+            <ion-col>If you want to change and upgrade your package from current package just simple click on "upgrade package" button.</ion-col>
+          </ion-row>
+          <ion-row [hidden]=isHide>
+            <ion-col><button class="upgrade-package" (click)="onPackage()">Upgrade package</button></ion-col>
+          </ion-row>
+        </div>
+
+      </ion-card>
+    </ion-item>
+    <ion-item>
+      <ion-card>
+        <ion-card-header color="primary">
+          <ion-icon name="card"></ion-icon>
+          <b>&nbsp; Credit Card</b>
+        </ion-card-header>
+        <div style="padding:15px">
+          <ion-row>
+            <ion-col>Card Type :</ion-col>
+            <div class="paymentcard">
+						<span><img src="assets/card/card1.svg"></span>
+						<span><img src="assets/card/card2.svg"></span>
+						<span><img src="assets/card/card3.svg"></span>
+						<span><img src="assets/card/card5.svg"></span>
+					</div>
+          </ion-row>
+<!--
+          <ion-row>
+            <ion-col>Card Name :</ion-col>
+            <ion-col> {{stripecustname}}</ion-col>
+          </ion-row>
+-->
+          <ion-row>
+            <ion-col>Card Number :</ion-col>
+            <ion-col>{{defaultCardNum}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Card Exp :</ion-col>
+            <ion-col> {{defaultmonth}}/{{defaultyear}}</ion-col>
+          </ion-row>
+        </div>
+
+      </ion-card>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button color="primary" type="submit" (click)="onEditAccountClick()">Edit My Account</button>
+  <button ion-button color="light" (click)="onChangePassword()">Change Password</button>
+</ion-content>

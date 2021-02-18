@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ScheduleDatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Schedule Date</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+<div class="calender-card">
+<ion-card> 
+  <ion-card-header>
+     {{ viewTitle }} 
+  </ion-card-header>
+  <calendar [eventSource]="eventSource"
+            [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate"
+            (onTitleChanged)="onViewTitleChanged($event)"
+            (onTimeSelected)="onTimeSelected($event)"
+            [markDisabled]="markDisabled"
+            [showEventDetail]="false"
+            step="30"
+            class="calendar">
+  </calendar>
+</ion-card>
+  </div>
+  <button ion-button full (click)="onClickNext()">Next</button>
+
+</ion-content>
