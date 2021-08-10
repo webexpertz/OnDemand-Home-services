@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {App, IonicPage, LoadingController, NavController, NavParams, ToastController,ModalController} from 'ionic-angular';
+import {App, IonicPage, LoadingController, NavController, NavParams, ToastController,ModalController, MenuController} from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import {Stripe} from "@ionic-native/stripe";
 import * as moment from 'moment';
@@ -25,12 +25,15 @@ export class MembershipPage {
   public selectedPlan: any;
   responseData: any;
 
-  constructor(private strip: Stripe,  public app: App, public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider, private loadingController: LoadingController, private toastCtrl: ToastController,public modalCtrl: ModalController) {
+  constructor(private strip: Stripe,  public app: App, public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider, private loadingController: LoadingController, private toastCtrl: ToastController,public modalCtrl: ModalController, public menuCtrl: MenuController) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.userId = this.userData.id;
     this.initPlans();
   }
 
+  ionViewWillEnter(){
+    this.menuCtrl.enable(true);
+  }
 
   initPlans() {
     this.showLoading();

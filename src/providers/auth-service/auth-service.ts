@@ -1,18 +1,34 @@
-import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
 
 let apiUrl="http://ondemandhome.betaplanets.com/Webservice/";
 
 @Injectable()
 export class AuthServiceProvider {
 data:any;
-  constructor(public http: HttpClient) {
+  constructor( public http: HttpClient) {
     console.log('Hello AuthServiceProvider Provider');
   } 
 
-postData(username ,password) {
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+       })
+  }
+
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return (
+      'Something bad happened; please try again later.');
+  };
+
+  async postData(username ,password) {
     var logindetail = "signin?email="+username+"&password="+password;
     return new Promise((resolve, reject) => { 
       this.http.get(apiUrl+""+logindetail).subscribe(res => {
@@ -21,7 +37,6 @@ postData(username ,password) {
 			reject(err);
         }); 
     });
-
   }
 signupData(userData) {
     var signdetail = "signup?username="+userData.username+"&firstname="+userData.firstname+"&lastname="+userData.lastname+"&email="+userData.email+"&mobile="+userData.contact+"&password="+userData.password+"&address="+userData.address+"&state="+userData.state+"&zip="+userData.zip+"&apt="+userData.apt+"&city="+userData.city;
@@ -271,16 +286,4 @@ makePayement(data) {
     });
     
   }
-  getRequestStatus(){
-    return new Promise((resolve, reject) => {
-      this.http.get(apiUrl + "getRequestedService").subscribe(res => {
-        resolve(res);
-       
-      }, (err) => {
-        reject(err);
-      });
-    });
-    
-  }
-  
 }

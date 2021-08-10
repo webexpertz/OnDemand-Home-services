@@ -17,7 +17,7 @@
   <form [formGroup]="formgroup">
   <ion-item *ngIf="availableTimes.length > '0' ">
     <ion-label>Select Time</ion-label>
-  <ion-select formControlName="selectedTime">
+  <ion-select formControlName="selectedTime" (ionChange)="selectTime($event)">
     <ion-option *ngFor="let time of availableTimes; let idx=index" >{{time |date: "shortTime"}}</ion-option>
   </ion-select>
   </ion-item>

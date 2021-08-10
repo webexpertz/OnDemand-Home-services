@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, Platform, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
@@ -31,7 +31,7 @@ export class SignupPage {
   ischeck = true;
   confirmcheckbox:any;
   constructor(public navCtrl: NavController,public authService: AuthServiceProvider,public toastCtrl: ToastController, public navParams: NavParams, public platform: Platform,
-   public formbuilder:FormBuilder) {
+   public formbuilder:FormBuilder, public menuCtrl: MenuController) {
    
      platform.ready().then(() => {
         if (this.platform.is('ios')) {        
@@ -78,6 +78,11 @@ export class SignupPage {
         return false;
     }else return true;
 }
+
+ionViewWillEnter(){
+  this.menuCtrl.enable(false);
+}
+
   signup(userData){
       this.authService.signupData(userData).then((result) => {
       this.responseData = result;

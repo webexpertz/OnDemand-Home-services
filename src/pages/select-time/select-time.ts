@@ -37,6 +37,9 @@ export class SelectTimePage {
   notes:any;
   des =[] ;
   desid =[] ;
+  allBookings: any;
+  dataService: any;
+  selectedDate: any;
 
 
 
@@ -48,6 +51,8 @@ export class SelectTimePage {
     this.initFormGroup();
     this.contact = this.userData.mobile;
     this.schemeId =localStorage.getItem("schemeId"); 
+
+this.checkSlot();
   }
 
   initFormGroup() {
@@ -55,6 +60,34 @@ export class SelectTimePage {
       "selectedTime": [''],
     });
   }
+
+  checkSlot() {
+    this.authService.getAllBookings(this.userId).then((response) => {
+     this.allBookings = response;
+     console.log("all bookings", this.allBookings);
+   });
+ }
+
+ selectTime(ev){
+   console.log(ev)
+this.selectedDate = moment(this.navigatOBJ.date).format('MM/DD/YYYY');
+console.log(this.selectedDate);
+   for (let data of this.allBookings) {
+    console.log("all Data", data)
+     console.log("booking date " + data.booking_time);
+     if(data.booking_date == this.selectedDate){
+       console.log("data match");
+     if(data.booking_time == ev){
+      this.showToast("Already booked!! Please choose different slot");
+      this.formgroup.controls['selectedTime'].setValue('');
+     }else{
+      console.log("dont match");
+     }
+    }else{
+      console.log("dont match");
+    }
+    }
+ }
 
 
   calculate(endTime) {
@@ -116,7 +149,9 @@ export class SelectTimePage {
     "&contact=" + this.contact +
     "&status=requested"+
     "&description="+this.des+
-    "&note=" + this.note;
+    "&note=" + this.note+
+    "&calculatedate=" + new Date()+
+    "&date=" + new Date();
 
     console.log("sadfsafsafsfd  dsfsad sd  sadf   sad as  ad a", this.endApi);
 
@@ -207,7 +242,8 @@ export class SelectTimePage {
     "&schemeid=" + this.schemeId +
     "&contact=" + this.contact +
     "&note=" +this.notes +
-    "&status=requested";
+    "&status=requested" +
+    "&calculatedate=" + new Date();
 
     this.showLoading();
     console.log("id " + this.userId + " service " + this.navigatOBJ.service.services);

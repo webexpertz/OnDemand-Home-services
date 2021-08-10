@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertController, App, IonicPage, ModalController, NavController, Platform, ToastController,Events} from 'ionic-angular';
+import {AlertController, App, IonicPage, ModalController, NavController, Platform, ToastController,Events, MenuController} from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 import {MembershipPage} from "../membership/membership";
@@ -31,7 +31,7 @@ export class LoginPage {
     value:any;
     alldata:any = [];
   constructor(private fcm: FCM,private alertCtrl: AlertController, public navCtrl: NavController, public authService: AuthServiceProvider, public app: App, public toastCtrl: ToastController,
-              private localNotifications: LocalNotifications, public modalCtrl: ModalController, public formbuilder: FormBuilder, public http: Http, public platform: Platform,public storage:Storage,public ev:Events) {
+              private localNotifications: LocalNotifications, public modalCtrl: ModalController, public formbuilder: FormBuilder, public http: Http, public platform: Platform,public storage:Storage,public ev:Events,public menuCtrl: MenuController) {
    
    if (this.platform.is("android") || this.platform.is("ios"))
       this.initToken();
@@ -42,6 +42,10 @@ export class LoginPage {
     });
     this.username = this.formgroup.controls['username'];
     this.password = this.formgroup.controls['password'];
+  }
+
+  ionViewWillEnter(){
+    this.menuCtrl.enable(false);
   }
 
    initToken() {
@@ -90,7 +94,7 @@ export class LoginPage {
     this.authService.postData(userData.username, userData.password).then((result) => {
     
 
-      console.log('userdata', this.data);
+      console.log('userdata', result);
 
       this.data = result;
       if (this.data) {
@@ -161,7 +165,7 @@ export class LoginPage {
         toast.present(toast);
       }
     }, (err) => {
-      console.log("Login Response data " , JSON.parse(err));
+      console.log("Login Response data " , (err));
 
     });
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, LoadingController, MenuController, NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import { NotificationsPage } from '../notifications/notifications';
 import { MyAccountPage } from '../my-account/my-account';
@@ -19,12 +19,13 @@ export class HomePage {
   loader :any;
   userId :any;
   constructor(public navCtrl: NavController, public navParams: NavParams,  private authService: AuthServiceProvider, 
-  private loadingController: LoadingController) {
+  private loadingController: LoadingController, public menuCtrl: MenuController) {
    this.userId=JSON.parse(localStorage.getItem('userData')).id;
    
   }
   ionViewWillEnter(){
     this.initNotification();
+    this.menuCtrl.enable(true);
   }
 
   initNotification(){

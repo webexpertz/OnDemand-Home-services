@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-//~ import * as moment from 'moment';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import * as moment from 'moment';
 
 
 /**
@@ -33,10 +34,15 @@ export class ScheduleDatePage {
     mode: 'month',
     currentDate: this.date
   };
+  events: any;
+  userId: any;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider) {
+    this.userId=JSON.parse(localStorage.getItem('userData')).id;
     
   }
+ 
 
   onViewTitleChanged(title) {
     this.viewTitle = title;
@@ -52,12 +58,15 @@ export class ScheduleDatePage {
 
     let mutiobj = this.navParams.get('muti');
     console.log("click next "+JSON.stringify(selectedService));
+    console.log("click next ", selectedService );
     let obj = {
       service: selectedService,
       multiObj : mutiobj,
       date: this.selectedDay,
       description :selecteddes,
     };
+    console.log(obj);
+   
     this.navCtrl.push('SelectTimePage', {'OBJ': obj})
   }
 }

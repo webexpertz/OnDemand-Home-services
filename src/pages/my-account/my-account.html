@@ -1,9 +1,13 @@
-<ion-header>
+<ion-header style="background: #fb8e2e;">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button> 
-     <div class="herder-image">
+    
+  </ion-navbar>
+</ion-header>
+<ion-content class="herder-image">
+  <div class="fixed-header">
     <div class="profile-image-show">
 	<div [hidden]="lastImage === null" class="newpic">
 		<img id="profile-image" class="profile-image"  src="{{base64Image}}">
@@ -18,9 +22,6 @@
 		<p class="profile-email">{{userData.email}}</p> 
 </div>
 </div>
-  </ion-navbar>
-</ion-header>
-<ion-content>
   <ion-list no-lines>
     <ion-item no-lines>
       <ion-card>

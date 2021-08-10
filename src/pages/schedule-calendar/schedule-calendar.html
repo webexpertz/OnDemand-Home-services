@@ -31,12 +31,24 @@
 				<div class="card-time">{{booking.booking_date}} - {{booking.booking_time}}</div>
 				<div class="card-title">Status - {{booking.status}}</div>
         <div class="card-decription">{{booking.techname}} - {{booking.techcontact}}</div>
-        <ion-row>
+       
+        <!-- For Android  -->
+        <!-- <ion-row>  
         <img src="assets/icon/create-outline.svg" size="30" *ngIf="booking.status == 'requested'" (click)="editBooking(booking)"  style="width:10%">
         <img src="assets/icon/trash-outline.svg" size="30" *ngIf="booking.status == 'requested'" (click)="showAlert(booking)" style="width:10%">
         <img src="assets/icon/create-outline (1).svg" *ngIf="booking.status == 'accept'" size="30"   style="width:10%">
         <img *ngIf="booking.status == 'accept'" src="assets/icon/trash-outline (1).svg" size="30"  style="width:10%">
+      </ion-row> -->
+       <!-- For Android  -->
+
+       <!-- For IOS  -->
+      <ion-row>
+        <ion-icon name="create-outline"  *ngIf="booking.status == 'requested'" (click)="editBooking(booking)"  style="font-size: 37px !important;color: blue; margin-right: 10px;"></ion-icon>
+        <ion-icon name="trash-outline" *ngIf="booking.status == 'requested'" (click)="showAlert(booking)" style="font-size: 37px !important;color: red; "></ion-icon>
+        <ion-icon name="create-outline" *ngIf="booking.status == 'accept'" style="width:10%; height:30px!important;" style="font-size: 37px !important;color: blue; margin-right: 10px;"></ion-icon>
+        <ion-icon name="trash-outline" *ngIf="booking.status == 'accept'"  style="width:10%; height:30px!important;" style="font-size: 37px !important;color: red; "></ion-icon>
       </ion-row>
+      <!-- For IOS  -->
         <!-- <button ion-button (click)="editBooking(booking)">Edit</button>			 -->
 			  </div>
 			  </div>

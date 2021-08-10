@@ -24,6 +24,7 @@ export class PayPage {
   loader:any;
  custid:any;
  customerid:any;
+ data:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,
     public loadingCtrl: LoadingController,public toastCtrl:ToastController,private ev: Events,private alertCtrl: AlertController) {
   
@@ -57,12 +58,19 @@ export class PayPage {
     this.loader.present();
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.userId = this.userData.id;
+    console.log(this.userId)
+    console.log(" this.userData", this.userData);
     this.http.get(apiUrl+'addOnDetailById?userid='+ this.userId).map(res => res.json()).subscribe(result => {
-      this.alldata = result.response;
-     
+      this.data = result;
+      if(this.data.response){
+        this.alldata = this.data.response;
         this.customerid = this.alldata[0].customerid;
+      }
+   
+      console.log("response", this.alldata.length);
+      
         this.loader.dismiss();
-     
+ 
       this.loaddata();
     console.log(result);
  

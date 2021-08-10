@@ -51,6 +51,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import{ServiceModalComponent} from "../components/service-modal/service-modal"
+import { HTTP } from '@ionic-native/http/ngx';
 @NgModule({
   declarations: [
     MyApp,
@@ -131,6 +132,7 @@ import{ServiceModalComponent} from "../components/service-modal/service-modal"
     FCM,
     InAppBrowser,
     LocalNotifications,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,DatePicker
   ]

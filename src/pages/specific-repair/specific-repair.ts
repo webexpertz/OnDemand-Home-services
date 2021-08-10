@@ -60,6 +60,10 @@ spackage:any;
 ppackage:any;
 
   description = [];
+  allBookings: any = [];
+  userId: any;
+  selectedItems: any;
+  dataService: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private loadingController: LoadingController, private toastCtrl: ToastController, private authService: AuthServiceProvider, private alertCtrl: AlertController) {
@@ -69,12 +73,13 @@ ppackage:any;
     this.selectSer=this.navParams.get('SER');
     console.log("SER",this.selectSer);
       this.initServices(this.schemeId, 1);
-
-      this.authService.getRequestStatus().then((response) => {              
-                          
-        console.log("response",response);
-      });
-
+      this.userId=JSON.parse(localStorage.getItem('userData')).id;
+    // if(this.selectSer == 1){
+    //   this.initServices(this.schemeId, 0);
+      // this.selectedId = 0 ;
+    // }else{
+    //   this.initServices(this.schemeId, 1)
+    // }
   }
 
   ionViewDidLoad() {
@@ -177,7 +182,8 @@ console.log(package_id);
       if(this.mutliservice.indexOf(index) == -1 ){
         this.mutliservice.push(index);
      console.log("mutliservice",item);
-    
+     this.selectedItems = item;
+     
 
       }else{
         let i =this.mutliservice.indexOf(index);
@@ -289,7 +295,11 @@ console.log(package_id);
      //   this.mutiData.push(this.services[this.mutliservice[i]]);
      //   console.log("Multidata",this.mutiData);
      // }
+     
+  
       this.navCtrl.push('ScheduleDatePage', {'OBJ': this.mutiData,"muti":"true",'des':this.description});
+    //  }
+ 
      //  console.log("Selected Data",this.services[this.selectedId]);
 
 }

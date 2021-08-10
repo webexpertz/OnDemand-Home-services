@@ -5,56 +5,65 @@ page-my-account {
         box-shadow: none;
     }
      // fixed header 
-    .header .toolbar {
-        min-height: inherit !important;
-        // padding: 56.25% 0 0 !important;
-        @media screen and (orientation: landscape) {
-            padding: 28.125% 0 0 !important;
-          }
+    // .header .toolbar {
+    //     min-height: inherit !important;
+    //     // padding: 56.25% 0 0 !important;
+    //     @media screen and (orientation: landscape) {
+    //         padding: 28.125% 0 0 !important;
+    //       }
           
-          @media screen and (orientation: portrait) {
-            padding: 56.25% 0 0 !important;
-          }
-    }
-    .content .fixed-content {
-       // margin-top: 56.25% !important;
-       @media screen and (orientation: landscape) {
-        margin-top: 28.125% !important;
-      } 
-      @media screen and (orientation: portrait) {
-        margin-top: 56.25% !important;
-      }
-    }
-    .scroll-content{
-        @media screen and (orientation: landscape) {
-            margin-top: 28.125% !important;
-          } 
-          @media screen and (orientation: portrait) {
-            margin-top: 56.25% !important;
-          }
-    }
-    .parallax-header {
-        display: none;
-    }
-    .back-button, .bar-buttons {
-        position: absolute;
-        top: 20px;
-        z-index: 9;  
-    }
-    .back-button-md, .bar-buttons-md {
-        top: 15px;
-    }
+    //       @media screen and (orientation: portrait) {
+    //         padding: 56.25% 0 0 !important;
+    //       }
+    // }
+    // .content .fixed-content {
+    //    // margin-top: 56.25% !important;
+    //    @media screen and (orientation: landscape) {
+    //     margin-top: 28.125% !important;
+    //   } 
+    //   @media screen and (orientation: portrait) {
+    //     margin-top: 56.25% !important;
+    //   }
+    // }
+    // .scroll-content{
+    //     @media screen and (orientation: landscape) {
+    //         margin-top: 28.125% !important;
+    //       } 
+    //       @media screen and (orientation: portrait) {
+    //         margin-top: 56.25% !important;
+    //       }
+    // }
+    // .parallax-header {
+    //     display: none;
+    // }
+    // .back-button, .bar-buttons {
+    //     position: absolute;
+    //     top: 20px;
+    //     z-index: 9;  
+    // }
+    // .back-button-md, .bar-buttons-md {
+    //     top: 15px;
+    // }
     //top
     .herder-image {
-        background-image: url("../assets/imgs/list-page-bg.png");
-        background-position: center bottom;
-        background-size: cover;
-        height: 100%;
-        left: 0;
-        padding: 4rem 4rem 0;
-        position: absolute;
-        top: 0;
-        width: 100%; 
+        // background-image: url("../assets/imgs/list-page-bg.png");
+        // background-position: center bottom;
+        // background-size: cover;
+        // height: 100%;
+        // left: 0;
+        // padding: 4rem 4rem 0;
+        // position: absolute;
+        // top: 0;
+        // width: 100%; 
+        .fixed-header{
+            background-image: url("../assets/imgs/list-page-bg.png");
+            background-position: center bottom;
+            background-size: cover;
+             left: 0;
+            padding: 7rem 4rem 0;
+              top: 0;
+            width: 100%;
+        }
         .profile-image-show {
             position: relative;
             top: 50%;
